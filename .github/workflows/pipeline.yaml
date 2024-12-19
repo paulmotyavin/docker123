@@ -10,7 +10,7 @@ on:
 
 jobs:
   checkstyle:
-    runs-on: ubuntu-latest
+    runs-on: windows-latest
     steps:
       - name: Download code
         uses: actions/checkout@v2
@@ -30,9 +30,8 @@ jobs:
 
       - name: Install XAML checker
         run: |
-          sudo apt-get install xaml-checker
+          choco install xaml-checker
 
       - name: Check XAML code style
         run: |
           xaml-checker **/*.xaml
-
