@@ -1,0 +1,38 @@
+name: Check Style Code
+
+on:
+  push:
+    branches:
+      - pipeline_prakt7
+  pull_request:
+    branches:
+      - pipeline_prakt7
+
+jobs:
+  checkstyle:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Download code
+        uses: actions/checkout@v2
+
+      - name: Set up .NET
+        uses: actions/setup-dotnet@v1
+        with:
+          dotnet-version: '8.0.202'
+
+      - name: Install dependencies
+        run: |
+          dotnet restore
+
+      - name: Check C# code style
+        run: |
+          dotnet AviaPlace.sln format --check
+
+      - name: Install XAML checker
+        run: |
+          sudo apt-get install xaml-checker
+
+      - name: Check XAML code style
+        run: |
+          xaml-checker **/*.xaml
+
