@@ -22,7 +22,7 @@ jobs:
 
       - name: Install dependencies
         run: |
-          dotnet restore AviaPlace1/AviaPlace/AviaPlace1.csproj
+          dotnet restore .AviaPlace1/AviaPlace/AviaPlace1.csproj
 
       - name: Check C# code style
         run: |
