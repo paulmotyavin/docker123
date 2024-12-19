@@ -10,7 +10,7 @@ on:
 
 jobs:
   checkstyle:
-    runs-on: ubuntu-latest
+    runs-on: windows-latest
     steps:
       - name: Download code
         uses: actions/checkout@v2
@@ -22,17 +22,16 @@ jobs:
 
       - name: Install dependencies
         run: |
-          dotnet restore
+          dotnet restore .AviaPlace1/AviaPlace/AviaPlace1.csproj
 
       - name: Check C# code style
         run: |
-          dotnet AviaPlace.sln format --check
+          dotnet /AviaPlace1 format --check
 
       - name: Install XAML checker
         run: |
-          sudo apt-get install xaml-checker
+          choco install xaml-checker
 
       - name: Check XAML code style
         run: |
           xaml-checker **/*.xaml
-
