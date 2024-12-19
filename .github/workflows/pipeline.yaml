@@ -26,7 +26,7 @@ jobs:
 
       - name: Check C# code style
         run: |
-          dotnet AviaPlace.sln format --check
+          dotnet ./AviaPlace1 format --check
 
       - name: Install XAML checker
         run: |
