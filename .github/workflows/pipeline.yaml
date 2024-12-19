@@ -22,11 +22,11 @@ jobs:
 
       - name: Install dependencies
         run: |
-          dotnet restore
+          dotnet restore AviaPlace1/AviaPlace/AviaPlace1.csproj
 
       - name: Check C# code style
         run: |
-          dotnet ./AviaPlace1 format --check
+          dotnet /AviaPlace1 format --check
 
       - name: Install XAML checker
         run: |
